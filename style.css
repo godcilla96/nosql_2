@@ -1,0 +1,85 @@
+html {
+    background-color:  #420200;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    overflow-x: hidden;
+}
+.main {
+    box-sizing: border-box;
+    margin: 30px 50px 0 50px;
+    padding: 10px 25px 10px 25px;
+    background-color:  #CAD2C5;
+    position: relative;
+}
+nav {
+    background-color:   rgb(42, 14, 0);
+    margin: 0;
+    padding: 0;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    text-align: center;
+    height: 30px;
+}
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+}
+
+nav a {
+    text-decoration: none;
+    color: #CAD2C5;
+    font-weight: bold;
+    font-size: 1.2em;
+    text-transform: uppercase;
+    margin: 0 10px 0 10px;
+    padding: 30px;
+    line-height: 30px;
+}
+
+a:hover {
+    font-style: italic;
+}
+
+a.active {
+    background-color: #CAD2C5;
+    color: black;
+}
+
+footer {
+    position: fixed;
+    background-color:   rgb(42, 14, 0);
+    color: white;
+    padding: 10px;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    text-align: center;
+}
+
+#postList {
+    line-height: 2em;
+}
+
+button {
+    margin-left: 10px;
+}
+
+.slutsatser {
+    line-height: 2em;
+    max-width: 70ch;
+    margin: 0 auto;
+    margin-bottom: 25px;
+}
+
+@media only screen and (min-width: 1300px) {
+    .main {
+        margin-left: 350px;
+        margin-right: 350px;
+    }
+}
