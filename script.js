@@ -1,28 +1,5 @@
 const serverUrl = 'http://localhost:3003';
 
-//skapar raderaknapp
-function createDeleteButton(workExperienceId) {
-    const deleteButton = document.createElement('button');
-    deleteButton.textContent = 'Radera';
-    deleteButton.addEventListener('click', function() {
-      deleteWorkExperience(workExperienceId);
-    });
-    return deleteButton;
-  }
-  
-  //skapar ändraknapp
-  function createEditButton(workExperienceId, formData) {
-    const editButton = document.createElement('button');
-    editButton.textContent = 'Ändra';
-    editButton.addEventListener('click', function() {
-      // Här kan du implementera logik för att ändra posten med ID workExperienceId
-      // Exempelvis, visa ett formulär för att redigera posten med förifyllda värden från formData
-      console.log('Redigera post med ID:', workExperienceId);
-      console.log('Formulärdata:', formData);
-    });
-    return editButton;
-  }
-
 
 //inhämta data
 document.addEventListener('DOMContentLoaded', function() {
@@ -43,8 +20,8 @@ document.addEventListener('DOMContentLoaded', function() {
           const listItem = document.createElement('li');
           listItem.textContent = `${post.companyname} - ${post.jobtitle}, ${post.startdate}, ${post.enddate}: ${post.description}`;
                 // Skapa radera och ändra knappar för varje post
-                const deleteButton = createDeleteButton(post.id);
-                const editButton = createEditButton(post.id, post);
+                const deleteButton = createDeleteButton(post._id);
+                const editButton = createEditButton(post._id, post);
                 listItem.appendChild(deleteButton);
                 listItem.appendChild(editButton);
           
@@ -153,3 +130,55 @@ function addWorkExperience(workExperienceData) {
       addWorkExperience(formData);
     }
   });
+
+  
+//skapar raderaknapp
+function createDeleteButton(workExperienceId) {
+  console.log('workExperienceId:', workExperienceId);
+  const deleteButton = document.createElement('button');
+  deleteButton.textContent = 'Radera';
+  deleteButton.addEventListener('click', function() {
+    //visa bekräftelseruta
+    const confirmed = confirm("Är du säker på att du vill radera posten?");
+    if (confirmed) {
+      deleteWorkExperience(workExperienceId);
+    }
+  });
+  return deleteButton;
+}
+
+function deleteWorkExperience(workExperienceId) {
+  if (!workExperienceId) {
+    console.error('workExperienceId is undefined');
+    return;
+  }
+
+  fetch(`${serverUrl}/workexperience/${workExperienceId}`, {
+    method: 'DELETE'
+  })
+  .then(response => {
+    if (!response.ok) {
+      throw new Error('Failed to delete work experience');
+    }
+    console.log('Work experience deleted successfully');
+    //ladda om sidan efter att posten har raderats
+    window.location.reload();
+  })
+  .catch(error => {
+    console.error('Error deleting work experience:', error);
+  });
+}
+  
+
+    //skapar ändraknapp
+    function createEditButton(workExperienceId, formData) {
+      const editButton = document.createElement('button');
+      editButton.textContent = 'Ändra';
+      editButton.addEventListener('click', function() {
+        console.log('Redigera post med ID:', workExperienceId);
+        console.log('Formulärdata:', formData);
+      });
+      return editButton;
+    }
+  
+  

@@ -7,11 +7,11 @@ html {
     box-sizing: border-box;
     margin: 30px 50px 0 50px;
     padding: 10px 25px 10px 25px;
-    background-color:  #CAD2C5;
+    background-color:  #e1e1e1;
     position: relative;
 }
 nav {
-    background-color:   rgb(42, 14, 0);
+    background-color:   rgb(16, 5, 0);
     margin: 0;
     padding: 0;
     position: fixed;
@@ -33,7 +33,7 @@ nav ul li {
 
 nav a {
     text-decoration: none;
-    color: #CAD2C5;
+    color:  #e1e1e1;
     font-weight: bold;
     font-size: 1.2em;
     text-transform: uppercase;
@@ -47,14 +47,14 @@ a:hover {
 }
 
 a.active {
-    background-color: #CAD2C5;
+    background-color:  #e1e1e1;
     color: black;
 }
 
 footer {
     position: fixed;
-    background-color:   rgb(42, 14, 0);
-    color: white;
+    background-color:  rgb(16, 5, 0);
+    color:  #e1e1e1;
     padding: 10px;
     bottom: 0;
     right: 0;
