@@ -18,7 +18,12 @@ document.addEventListener('DOMContentLoaded', function() {
         const postList = document.getElementById('postList');
         data.forEach(post => {
           const listItem = document.createElement('li');
-          listItem.textContent = `${post.companyname} - ${post.jobtitle}, ${post.startdate}, ${post.enddate}: ${post.description}`;
+
+          //ändrar formattering för datum
+          const formattedStartDate = new Date(post.startdate).toISOString().split('T')[0];
+          const formattedEndDate = new Date(post.enddate).toISOString().split('T')[0];
+
+          listItem.textContent = `${post.companyname} - ${post.jobtitle}, ${formattedStartDate} - ${formattedEndDate}: ${post.description}`;
                 // Skapa radera och ändra knappar för varje post
                 const deleteButton = createDeleteButton(post._id);
                 const editButton = createEditButton(post._id, post);
