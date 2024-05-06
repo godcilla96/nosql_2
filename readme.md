@@ -1,2 +1,5 @@
 # Moment 3 - NoSQL-databaser
 Den här uppgiften är skapad med hjälp av MongoDB som databasanslutning.  Den använder sig av den tidigare deluppgiften i momentet för att hämta in databasen och använda den på en webbsida. Genom att använda fetch API och de olika CRUD-operationerna har Create, Read och Delete implementerats på webbsidan, dock inte PUT-funktionen. Vid radering eller addering av poster uppdateras databasen i MongoDB, och om posterna ändras via databasen syns även detta på webbsidan. Uppgiften använder en automatiserad arbestprocess med Parcel och tar även hjälp av mongoose för lättare hantering av databasoperationer.
+
+## Funktioner
+I formuläret går det lägga till poster. Koden valideras innan uppdatering av databasen för att säkerställa att användaren fyller i alla fält som behövs. För varje tillagd post skapas även en radera-knapp som användaren kan klicka på för att radera en post från webbsidan och databasen. Det skapas också en ändra-knapp som inte har någon funktion. 
